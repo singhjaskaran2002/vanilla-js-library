@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>User management</title>
+	</head>
+	<body>
+		<script type="text/javascript" src="./navigation.js"></script>
+		<script type="text/javascript" src="./cookie.js"></script>
+		<script type="text/javascript" src="./components/Welcome.js"></script>
+		<script type="text/javascript" src="./components/Dashboard.js"></script>
+		<button type="button" onclick="_renderPath_('/')">Welcome</button>
+		<button type="button" onclick="_renderPath_('/dashboard')">
+			Dashboard
+		</button>
+		<button type="button" onclick="_renderPath_('/feedback')">
+			Feedback
+		</button>
+		<div id="root"></div>
+
+		<!-- script -->
+		<script>
+			const name = "Jaskaran";
+			const count = 10;
+			const routes = [
+				{
+					path: "/",
+					element: `<wel-come name=${name} />`,
+				},
+				{
+					path: "/dashboard",
+					element: `<my-dashboard count=${count} />`,
+				},
+				{
+					path: "/feedback",
+					element: `<h1>Feedback</h1>`,
+				},
+			];
+			_routing_(routes);
+			_renderPath_(window.location.pathname);
+		</script>
+	</body>
+</html>
